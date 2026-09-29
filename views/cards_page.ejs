@@ -1,0 +1,17 @@
+<%- include('layout', { body: `
+  <h2>${pageTitle}</h2>
+  <div class="grid-container">
+    ${items.map(item => `
+      <div class="card">
+        <img src="${item.image_url}">
+        <div class="card-content">
+          <h4>${item.title}</h4>
+          <a href="/item/${item.id}">קרא עוד</a>
+        </div>
+      </div>
+    `).join('')}
+  </div>
+  <div class="pagination">
+    ${Array.from({length: totalPages}, (_, i) => `<a href="/${type}?page=${i+1}">${i+1}</a>`).join('')}
+  </div>
+` }) %>

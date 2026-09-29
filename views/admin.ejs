@@ -1,0 +1,35 @@
+<%- include('layout', { body: `
+  <h2>מערכת ניהול - מגן טכנולוגיות</h2>
+  <a href="/logout">התנתק</a>
+
+  <hr><h3>הוספת גיליון חדש</h3>
+  <form action="/admin/add-issue" method="POST" enctype="multipart/form-data">
+    <input type="number" name="issue_number" placeholder="מספר גיליון" required>
+    <input type="text" name="title" placeholder="כותרת הגיליון" required>
+    <label>תמונת שער:</label><input type="file" name="cover" accept="image/*" required>
+    <label>קובץ PDF:</label><input type="file" name="pdf" accept="application/pdf" required>
+    <button type="submit">עלי גיליון</button>
+  </form>
+
+  <hr><h3>הוספת מסמך מדיניות</h3>
+  <form action="/admin/add-policy" method="POST" enctype="multipart/form-data">
+    <input type="text" name="doc_num" placeholder="מספר מסמך" required>
+    <input type="text" name="title" placeholder="שם המסמך" required>
+    <input type="text" name="author" placeholder="מחבר" required>
+    <input type="file" name="file" required>
+    <button type="submit">הוסף מסמך</button>
+  </form>
+
+  <hr><h3>הוספת תוכן (פרסומים / אירועים / חדשנות)</h3>
+  <form action="/admin/add-content" method="POST" enctype="multipart/form-data">
+    <select name="type">
+      <option value="publications">פרסומים</option>
+      <option value="events">אירועים</option>
+      <option value="innovation">חדשנות</option>
+    </select>
+    <input type="text" name="title" placeholder="כותרת" required>
+    <textarea name="description" placeholder="תוכן מפורט"></textarea>
+    <input type="file" name="image" accept="image/*">
+    <button type="submit">הוסף תוכן</button>
+  </form>
+` }) %>

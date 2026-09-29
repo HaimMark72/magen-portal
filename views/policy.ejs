@@ -1,0 +1,23 @@
+<%- include('layout', { body: `
+  <h2>מסמכי מדיניות</h2>
+  <table class="data-table">
+    <thead>
+      <tr>
+        <th>מספר מסמך</th>
+        <th>שם המסמך</th>
+        <th>מחבר</th>
+        <th>עדכון אחרון</th>
+      </tr>
+    </thead>
+    <tbody>
+      ${policies.map(p => `
+        <tr>
+          <td><a href="${p.file_url}" target="_blank">${p.doc_num}</a></td>
+          <td>${p.title}</td>
+          <td>${p.author}</td>
+          <td>${p.updated_at}</td>
+        </tr>
+      `).join('')}
+    </tbody>
+  </table>
+` }) %>

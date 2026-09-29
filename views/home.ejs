@@ -1,0 +1,26 @@
+<%- include('layout', { body: `
+  <h2>הגיליון החודשי העדכני</h2>
+  ${currentIssue ? `
+    <div style="background: white; padding: 20px; border-radius: 8px; display: flex; gap: 20px;">
+      <img src="${currentIssue.cover_url}" style="width: 200px; border-radius: 4px;">
+      <div>
+        <h3>גיליון #${currentIssue.issue_number} - ${currentIssue.title}</h3>
+        <p>תאריך פרסום: ${currentIssue.release_date}</p>
+        <a href="${currentIssue.pdf_url}" target="_blank" style="background: #0066cc; color: white; padding: 10px 20px; text-decoration: none; border-radius: 4px;">פתוח גיליון (PDF)</a>
+      </div>
+    </div>
+  ` : '<p>אין גיליון פעיל להצגה.</p>'}
+
+  <h2 style="margin-top: 40px;">עדכונים אחרונים</h2>
+  <div class="grid-container">
+    ${latestCards.map(item => `
+      <div class="card">
+        <img src="${item.image_url}">
+        <div class="card-content">
+          <h4>${item.title}</h4>
+          <a href="/item/${item.id}">לפרטים נוספים</a>
+        </div>
+      </div>
+    `).join('')}
+  </div>
+` }) %>

@@ -1,0 +1,21 @@
+<%- include('layout', { body: `
+  <h2>ארכיון גיליונות</h2>
+  <div class="grid-container">
+    ${issues.map(issue => `
+      <div class="card">
+        <a href="${issue.pdf_url}" target="_blank">
+          <img src="${issue.cover_url}">
+        </a>
+        <div class="card-content">
+          <h4>גיליון #${issue.issue_number}</h4>
+          <p>${issue.title}</p>
+          <a href="${issue.pdf_url}" target="_blank">הורדת PDF</a>
+        </div>
+      </div>
+    `).join('')}
+  </div>
+
+  <div class="pagination">
+    ${Array.from({length: totalPages}, (_, i) => `<a href="/archive?page=${i+1}">${i+1}</a>`).join('')}
+  </div>
+` }) %>

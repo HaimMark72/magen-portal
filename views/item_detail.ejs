@@ -1,0 +1,7 @@
+<%- include('layout', { body: `
+  <h2>${item.title}</h2>
+  <p><small>פורסם בתאריך: ${item.created_at}</small></p>
+  <img src="${item.image_url}" style="max-width: 100%; border-radius: 8px;">
+  <p style="margin-top: 20px; line-height: 1.6;">${item.description}</p>
+  <br><a href="javascript:history.back()">-> חזרה</a>
+` }) %>
